@@ -4,3 +4,26 @@ def dictionary
     "at" => "@", "and" => "&"
   }
 end
+
+def word_substituter(string)
+  keys_array = dictionary.keys
+  string_array = string.split
+  counter = 0
+  string_array.each do |word|
+    keys_array.each do |key_word|
+      if word == key_word
+        string_array[counter].replace(dictionary[key_word])
+      end
+    end
+    counter += 1
+  end
+  output_string = string_array.join(' ')
+  return output_string
+end
+
+def bulk_tweet_shortener(tweet_array)
+  tweet_array.each do |tweet|
+    output_tweet = word_substituter(tweet)
+    puts output_tweet
+  end
+end
