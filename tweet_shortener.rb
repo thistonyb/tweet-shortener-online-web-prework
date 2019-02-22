@@ -1,6 +1,6 @@
 def dictionary
   {"hello" => 'hi', "to" => '2', "two" => '2', "too" => '2',
-    "for" => '4', "four" => '4', "be" => 'b', "you" => 'u',
+    "for" => '4', "four" => '4', "For" => '4', "be" => 'b', "you" => 'u',
     "at" => "@", "and" => "&"
   }
 end
@@ -25,5 +25,22 @@ def bulk_tweet_shortener(tweet_array)
   tweet_array.each do |tweet|
     output_tweet = word_substituter(tweet)
     puts output_tweet
+  end
+end
+
+def selective_tweet_shortener(tweet_string)
+  if tweet_string != nil && tweet_string.length > 140
+    output_tweet = word_substituter(tweet_string)
+  else
+    return tweet_string
+  end
+end
+
+def shortened_tweet_truncator(tweet_string)
+  output_string = selective_tweet_shortener(tweet_string)
+  if output_string != nil && output_string.length > 140
+    return output_string[0..136] + "..."
+  else
+    return output_string
   end
 end
