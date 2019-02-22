@@ -43,6 +43,6 @@ def shortened_tweet_truncator(tweet_string)
     output_string = output_string.delete(135..string_end)
     puts output_string + "(...)"
   else
-    puts output_string  
+    puts output_string
   end
 end
